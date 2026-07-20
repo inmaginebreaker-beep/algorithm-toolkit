@@ -1,0 +1,36 @@
+# Python 缓存
+__pycache__/
+*.py[cod]
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# PyCharm
+.idea/
+
+# 测试和工具缓存
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# 构建产物
+build/
+dist/
+*.egg-info/
+
+# 环境变量
+.env
+.env.*
+!.env.example
+
+# 日志
+*.log
+logs/
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
