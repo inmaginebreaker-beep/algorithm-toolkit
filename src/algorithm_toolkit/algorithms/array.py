@@ -37,6 +37,9 @@ def find_max(nums: list[int]) -> int:
 
     Returns:
         数组中的最大整数。
+
+    Raises:
+        ValueError: 如果数组为空。
     """
     if not isinstance(nums,list):
         raise TypeError("nums必须是一个列表")
