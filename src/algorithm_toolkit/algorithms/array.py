@@ -71,6 +71,9 @@ def reverse_array(nums: list[int]) -> list[int]:
 
     Returns:
         反转后的整数列表。
+
+    Raise:
+        TypeError: 如果输入不是列表或列表中的元素不是整数。
     """
     if not isinstance(nums,list):
         raise TypeError("nums必须是一个列表")
