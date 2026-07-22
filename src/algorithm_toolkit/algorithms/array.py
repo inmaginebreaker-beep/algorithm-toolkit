@@ -63,31 +63,20 @@ def find_max(nums: list[int]) -> int:
 
 
 def reverse_array(nums: list[int]) -> list[int]:
-    """
-    Reverse the order of elements in the array.
+    """返回一个顺序反转的新列表，不修改原列表。
 
     Args:
-        nums:整数列表
+        nums: 需要反转的整数列表。
 
     Returns:
-        反转后的整数列表。
-
-    Raise:
-        TypeError: 如果输入不是列表或列表中的元素不是整数。
+        顺序反转后的新列表。
     """
-    if not isinstance(nums,list):
-        raise TypeError("nums必须是一个列表")
+    result: list[int] = []
 
-    if not all(isinstance(num,int) for num in nums):
-        raise TypeError("nums的元素必须是整数")
+    for index in range(len(nums) - 1, -1, -1):
+        result.append(nums[index])
 
-    new_nums = []
-    right = len(nums) -1
-    while right >= 0:
-        new_nums.append(nums[right])
-        right -=1
-
-    return new_nums
+    return result
 
 
 def remove_duplicates(nums: list[int]) -> list[int]:
