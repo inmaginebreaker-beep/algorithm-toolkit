@@ -20,5 +20,5 @@ class Queue:
         else:
             raise IndexError("Peek from an empty queue")
 
-    def size(self)  -> int:
+    def size(self) -> int:
         return len(self.items)

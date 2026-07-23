@@ -18,6 +18,5 @@ class Stack:
             raise IndexError("空栈没有顶部元素")
         return self.items[-1]
 
-
     def size(self) -> int:
         return len(self.items)

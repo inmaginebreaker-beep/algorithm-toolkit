@@ -72,3 +72,27 @@ algorithm-toolkit/
 ## License
 
 This project is for educational purposes.
+
+## Code Quality
+
+Format the project:
+
+```powershell
+ruff format .
+```
+
+## Run static checks:
+    
+```powershell
+ruff check .
+```
+
+## Verify formatting without modifying files:
+
+```powershell
+ruff format --check .
+```
+
+
+
+
