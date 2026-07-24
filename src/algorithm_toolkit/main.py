@@ -1,11 +1,15 @@
-from algorithm_toolkit.algorithms.array import two_sum
+import logging
+
+from algorithm_toolkit.logging_config import setup_logging
 
 
-def main():
-    nums = [2, 7, 11, 15]
-    target = 9
-    result = two_sum(nums, target)
-    print(result)
+logger = logging.getLogger(__name__)
+
+
+def main() -> None:
+    setup_logging()
+
+    logger.info("Algorithm Toolkit started")
 
 
 if __name__ == "__main__":
