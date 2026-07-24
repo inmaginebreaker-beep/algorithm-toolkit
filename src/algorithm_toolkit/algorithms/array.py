@@ -1,3 +1,10 @@
+import logging
+
+
+logger = logging.getLogger(__name__)
+
+
+
 def two_sum(nums: list[int], target: int) -> list[int]:
     """
     Find two numbers in the array that add up to the target sum.
@@ -9,6 +16,10 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     Returns:
         两个整数的索引列表，如果没有找到则返回空列表。
     """
+
+    logger.info(
+        "two_sum started"
+    )
 
     if not isinstance(nums, list):
         raise TypeError("nums必须是一个列表")
@@ -23,8 +34,14 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     for index, number in enumerate(nums):
         complement = target - number
         if complement in seen:
+            logger.info(
+                "two_sum found result"
+            )
             return [seen[complement], index]
         seen[number] = index
+    logger.warning(
+        "two_sum no result"
+    )
 
     return []
 
