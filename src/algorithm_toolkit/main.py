@@ -1,9 +1,7 @@
 import logging
 
 from algorithm_toolkit.config import APP_NAME, DEBUG
-
 from algorithm_toolkit.logging_config import setup_logging
-
 
 logger = logging.getLogger(__name__)
 
