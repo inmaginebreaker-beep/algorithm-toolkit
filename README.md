@@ -93,6 +93,20 @@ ruff check .
 ruff format --check .
 ```
 
+## Architecture
+
+The project separates responsibilities into three layers:
+
+- `main.py`: application entry point and top-level error handling
+- `application/`: orchestration and input validation
+- `algorithms/`: reusable algorithm implementations
+
+## Quality Checks
+
+```powershell
+ruff format --check .
+ruff check .
+pytest
 
 
 
