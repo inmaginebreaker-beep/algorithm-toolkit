@@ -4,72 +4,54 @@ logger = logging.getLogger(__name__)
 
 
 def two_sum(nums: list[int], target: int) -> list[int]:
+    """返回和为 target 的两个元素下标。
 
-    logger.info("two_sum started")
+    Args:
+        nums: 整数列表。
+        target: 目标整数。
 
-    hashmap = {}
+    Returns:
+        匹配元素的两个下标；不存在时返回空列表。
+    """
+    logger.debug("two_sum started: nums_size=%s target=%s", len(nums), target)
 
-    for index, value in enumerate(nums):
-        diff = target - value
+    seen: dict[int, int] = {}
 
-        if diff in hashmap:
-            logger.info("two_sum found result")
+    for index, number in enumerate(nums):
+        complement = target - number
 
-            return [hashmap[diff], index]
+        if complement in seen:
+            result = [seen[complement], index]
+            logger.debug("two_sum result found: result=%s", result)
+            return result
 
-        hashmap[value] = index
+        seen[number] = index
 
-    logger.warning("two_sum no result")
-
+    logger.debug("two_sum completed without result")
     return []
 
 
 def find_max(nums: list[int]) -> int:
-    """
-    Find the maximum number in the array.
-
-    Args:
-        nums:整数列表
-
-    Returns:
-        数组中的最大整数。
+    """返回非空整数列表中的最大值。
 
     Raises:
-        ValueError: 如果数组为空。
+        ValueError: 当 nums 为空时抛出。
     """
-    if not isinstance(nums, list):
-        raise TypeError("nums必须是一个列表")
+    if not nums:
+        raise ValueError("nums 不能为空")
 
-    if not all(isinstance(num, int) for num in nums):
-        raise TypeError("nums的元素必须是整数")
+    current_max = nums[0]
 
-    if len(nums) == 0:
-        raise ValueError("数组不能为空")
+    for number in nums[1:]:
+        if number > current_max:
+            current_max = number
 
-    max_num = nums[0]
-
-    for i in range(1, len(nums)):
-        if nums[i] > max_num:
-            max_num = nums[i]
-
-    return max_num
+    return current_max
 
 
 def reverse_array(nums: list[int]) -> list[int]:
-    """返回一个顺序反转的新列表，不修改原列表。
-
-    Args:
-        nums: 需要反转的整数列表。
-
-    Returns:
-        顺序反转后的新列表。
-    """
-    result: list[int] = []
-
-    for index in range(len(nums) - 1, -1, -1):
-        result.append(nums[index])
-
-    return result
+    """返回一个反转后的新列表，不修改原列表。"""
+    return list(reversed(nums))
 
 
 def remove_duplicates(nums: list[int]) -> list[int]:
@@ -84,9 +66,6 @@ def remove_duplicates(nums: list[int]) -> list[int]:
     """
     if not isinstance(nums, list):
         raise TypeError("nums必须是一个列表")
-
-    if not all(isinstance(num, int) for num in nums):
-        raise TypeError("nums的元素必须是整数")
 
     seen = set()
     result = []
