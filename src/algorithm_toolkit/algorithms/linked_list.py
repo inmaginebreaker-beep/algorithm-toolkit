@@ -1,55 +1,66 @@
-class Linked_list:
-    def __init__(self):
-        self.head = None
-
+class LinkedList:
     class Node:
-        def __init__(self, data):
+        def __init__(self, data: int) -> None:
             self.data = data
-            self.next = None
+            self.next: LinkedList.Node | None = None
 
-    def append(self, data):
+    def __init__(self) -> None:
+        self.head: LinkedList.Node | None = None
+
+    def append(self, data: int) -> None:
         new_node = self.Node(data)
-        if not self.head:
+
+        if self.head is None:
             self.head = new_node
             return
-        last_node = self.head
-        while last_node.next:
-            last_node = last_node.next
-        last_node.next = new_node
 
-    def prepend(self, data):
+        current_node = self.head
+
+        while current_node.next is not None:
+            current_node = current_node.next
+
+        current_node.next = new_node
+
+    def prepend(self, data: int) -> None:
         new_node = self.Node(data)
         new_node.next = self.head
         self.head = new_node
 
-    def delete(self, key):
+    def delete(self, key: int) -> bool:
         current_node = self.head
-        if current_node and current_node.data == key:
-            self.head = current_node.next
-            current_node = None
-            return
-        prev_node = None
-        while current_node and current_node.data != key:
-            prev_node = current_node
-            current_node = current_node.next
-        if current_node is None:
-            return
-        prev_node.next = current_node.next
-        current_node = None
+        previous_node: LinkedList.Node | None = None
 
-    def search(self, key):
-        current_node = self.head
-        while current_node:
+        while current_node is not None:
             if current_node.data == key:
+                if previous_node is None:
+                    self.head = current_node.next
+                else:
+                    previous_node.next = current_node.next
+
                 return True
+
+            previous_node = current_node
             current_node = current_node.next
+
         return False
 
-    def display(self) -> list[int]:
-        """链表转换为列表"""
-        nodes = []
+    def search(self, key: int) -> bool:
         current_node = self.head
-        while current_node:
-            nodes.append(current_node.data)
+
+        while current_node is not None:
+            if current_node.data == key:
+                return True
+
             current_node = current_node.next
-        return nodes
+
+        return False
+
+    def to_list(self) -> list[int]:
+        result: list[int] = []
+        current_node = self.head
+
+        while current_node is not None:
+            result.append(current_node.data)
+            current_node = current_node.next
+
+        return result
