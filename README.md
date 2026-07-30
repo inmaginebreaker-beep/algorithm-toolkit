@@ -106,6 +106,7 @@ The project separates responsibilities into three layers:
 ```powershell
 ruff format --check .
 ruff check .
+mypy
 pytest
 
 
