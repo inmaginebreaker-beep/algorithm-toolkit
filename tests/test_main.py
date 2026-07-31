@@ -1,11 +1,14 @@
 import sys
 
+from _pytest.capture import CaptureFixture
+from _pytest.monkeypatch import MonkeyPatch
+
 from algorithm_toolkit.main import main
 
 
 def test_main_returns_success_exit_code(
-    monkeypatch,
-    capsys,
+    monkeypatch: MonkeyPatch,
+    capsys: CaptureFixture[str],
 ) -> None:
     monkeypatch.setattr(
         sys,
