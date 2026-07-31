@@ -16,8 +16,8 @@ dependencies = []
 dev = [
     "pytest",
     "ruff",
-    "python-dotenv",
     "mypy",
+    "python-dotenv",
 ]
 
 
@@ -62,3 +62,7 @@ warn_return_any = true
 warn_unused_ignores = true
 show_error_codes = true
 pretty = true
+
+
+[project.scripts]
+algorithm-toolkit = "algorithm_toolkit.main:main"
