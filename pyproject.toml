@@ -2,24 +2,55 @@
 requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
-
 [project]
-name = "algorithm-toolkit"
+name = "kuroki-algorithm-toolkit"
 version = "0.1.0"
-description = "Algorithm practice project"
+description = "A command-line toolkit for practicing Python algorithms"
+readme = "README.md"
 requires-python = ">=3.10"
 
-dependencies = []
+authors = [
+    { name = "Kuroki" },
+]
 
+keywords = [
+    "algorithms",
+    "data-structures",
+    "cli",
+    "education",
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+
+
+dependencies = [
+    "python-dotenv>=1.0",
+]
+
+
+[project.urls]
+Repository = "https://github.com/inmaginebreaker-beep/algorithm-toolkit"
+Issues = "https://github.com/inmaginebreaker-beep/algorithm-toolkit/issues"
 
 [project.optional-dependencies]
 dev = [
-    "pytest",
-    "ruff",
+    "build",
     "mypy",
-    "python-dotenv",
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "twine",
 ]
 
+[project.scripts]
+algorithm-toolkit = "algorithm_toolkit.main:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -64,5 +95,3 @@ show_error_codes = true
 pretty = true
 
 
-[project.scripts]
-algorithm-toolkit = "algorithm_toolkit.main:main"
