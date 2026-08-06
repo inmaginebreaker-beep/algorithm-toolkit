@@ -108,6 +108,12 @@ ruff format --check .
 ruff check .
 mypy
 pytest
+```
 
+### Find Maximum
+
+```powershell
+algorithm-toolkit find-max --nums 4 9 2 7
+```
 
 

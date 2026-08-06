@@ -15,6 +15,7 @@ def create_parser() -> argparse.ArgumentParser:
     )
 
     create_two_sum_parser(subparsers)
+    create_find_max_parser(subparsers)
 
     return parser
 
@@ -43,17 +44,41 @@ def create_two_sum_parser(
     )
 
 
+def create_find_max_parser(
+    subparsers: argparse._SubParsersAction,
+) -> None:
+    parser = subparsers.add_parser(
+        "find-max",
+        help="Find the maximum number in a list",
+    )
+
+    parser.add_argument(
+        "--nums",
+        nargs="+",
+        type=int,
+        required=True,
+        help="Input integer list",
+    )
+
+
 def run_command(args: argparse.Namespace) -> int:
     service = AlgorithmService()
 
     if args.command == "two-sum":
-        result = service.run_two_sum(
+        two_sum_result = service.run_two_sum(
             nums=args.nums,
             target=args.target,
         )
 
-        print(result)
+        print(two_sum_result)
+        return 0
 
+    if args.command == "find-max":
+        maximum = service.run_find_max(
+            nums=args.nums,
+        )
+
+        print(maximum)
         return 0
 
     return 1

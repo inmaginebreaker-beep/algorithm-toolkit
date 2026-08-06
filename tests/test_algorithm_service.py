@@ -27,10 +27,21 @@ def test_run_two_sum_rejects_non_integer_target() -> None:
         service.run_two_sum([1, 2, 3], "3")  # type: ignore[arg-type]
 
 
+def test_run_find_max_returns_largest_number() -> None:
+    service = AlgorithmService()
+
+    result = service.run_find_max([4, 9, 2, 7])
+
+    assert result == 9
+
+
 def test_run_find_max_rejects_empty_list() -> None:
     service = AlgorithmService()
 
-    with pytest.raises(InvalidInputError, match="不接受空列表"):
+    with pytest.raises(
+        InvalidInputError,
+        match="不接受空列表",
+    ):
         service.run_find_max([])
 
 

@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file
 
 ### Added
 
+- Added the `find-max` CLI command.
+- Added CLI and application tests for maximum-value lookup.
 
 ### Changed
 
