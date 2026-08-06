@@ -8,8 +8,6 @@ All notable changes to this project will be documented in this file
 
 ### Added
 
-- Added the `find-max` CLI command.
-- Added CLI and application tests for maximum-value lookup.
 
 ### Changed
 
@@ -18,6 +16,15 @@ All notable changes to this project will be documented in this file
 
 
 ### Removed
+
+
+## [0.2.0] - 2026-08-06
+
+
+### Added
+
+- Added the `find-max` CLI command.
+- Added CLI and application tests for maximum-value lookup.
 
 
 ## [0.1.1] - 2026-08-04
@@ -60,6 +67,7 @@ All notable changes to this project will be documented in this file
 - Added GitHub Actions continuous integration.
 
 
-[Unreleased]: https://github.com/inmaginebreaker-beep/algorithm-toolkit/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/inmaginebreaker-beep/algorithm-toolkit/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/inmaginebreaker-beep/algorithm-toolkit/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/inmaginebreaker-beep/algorithm-toolkit/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/inmaginebreaker-beep/algorithm-toolkit/releases/tag/v0.1.0
