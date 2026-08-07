@@ -44,6 +44,7 @@ dev = [
     "build",
     "mypy",
     "pytest",
+    "pytest-benchmark",
     "pytest-cov",
     "ruff",
     "tomli>=2.0",
