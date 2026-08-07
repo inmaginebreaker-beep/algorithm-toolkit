@@ -11,6 +11,8 @@ All notable changes to this project will be documented in this file
 
 ### Changed
 
+- Optimized queue dequeue operations by replacing list-based storage with `collections.deque`.
+
 
 ### Fixed
 

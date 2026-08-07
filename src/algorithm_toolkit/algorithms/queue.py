@@ -1,9 +1,12 @@
+from collections import deque
+
+
 class Queue:
     def __init__(self) -> None:
-        self.items: list[int] = []
+        self.items: deque[int] = deque()
 
     def is_empty(self) -> bool:
-        return len(self.items) == 0
+        return not self.items
 
     def enqueue(self, item: int) -> None:
         self.items.append(item)
@@ -12,7 +15,7 @@ class Queue:
         if self.is_empty():
             raise IndexError("cannot dequeue from an empty queue")
 
-        return self.items.pop(0)
+        return self.items.popleft()
 
     def peek(self) -> int:
         if self.is_empty():
