@@ -1,12 +1,10 @@
-from collections.abc import Callable
-
 from pytest_benchmark.fixture import BenchmarkFixture
 
 from algorithm_toolkit.algorithms.queue import Queue
 
 
 def test_queue_dequeue_benchmark(
-        benchmark: BenchmarkFixture,
+    benchmark: BenchmarkFixture,
 ) -> None:
     def run() -> None:
         queue = Queue()
