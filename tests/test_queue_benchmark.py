@@ -7,7 +7,7 @@ def test_queue_dequeue_benchmark(
     benchmark: BenchmarkFixture,
 ) -> None:
     def run() -> None:
-        queue = Queue()
+        queue = Queue[int]()
 
         for number in range(10_000):
             queue.enqueue(number)

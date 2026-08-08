@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file
 
 - Optimized queue dequeue operations by replacing list-based storage with `collections.deque`.
 
+- Generalized `Queue` with static generic typing so it can safely store different element types.
 
 ### Fixed
 
