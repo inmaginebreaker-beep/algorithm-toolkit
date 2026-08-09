@@ -4,12 +4,18 @@ from algorithm_toolkit.application.algorithm_service import AlgorithmService
 from algorithm_toolkit.exceptions import InvalidInputError
 
 
-def test_run_two_sum_returns_matching_indices() -> None:
+def test_run_two_sum_returns_result() -> None:
     service = AlgorithmService()
 
-    result = service.run_two_sum([2, 7, 11, 15], 9)
+    result = service.run_two_sum(
+        nums=[2, 7, 11, 15],
+        target=9,
+    )
 
-    assert result == [0, 1]
+    assert result.algorithm == "two-sum"
+    assert result.input_size == 4
+    assert result.result == [0, 1]
+    assert result.success is True
 
 
 def test_run_two_sum_returns_empty_list_when_not_found() -> None:
@@ -17,7 +23,10 @@ def test_run_two_sum_returns_empty_list_when_not_found() -> None:
 
     result = service.run_two_sum([1, 2, 3], 100)
 
-    assert result == []
+    assert result.algorithm == "two-sum"
+    assert result.input_size == 3
+    assert result.result == []
+    assert result.success is True
 
 
 def test_run_two_sum_rejects_non_integer_target() -> None:
@@ -27,12 +36,15 @@ def test_run_two_sum_rejects_non_integer_target() -> None:
         service.run_two_sum([1, 2, 3], "3")  # type: ignore[arg-type]
 
 
-def test_run_find_max_returns_largest_number() -> None:
+def test_run_find_max_returns_result() -> None:
     service = AlgorithmService()
 
     result = service.run_find_max([4, 9, 2, 7])
 
-    assert result == 9
+    assert result.algorithm == "find-max"
+    assert result.input_size == 4
+    assert result.result == 9
+    assert result.success is True
 
 
 def test_run_find_max_rejects_empty_list() -> None:
@@ -43,13 +55,3 @@ def test_run_find_max_rejects_empty_list() -> None:
         match="不接受空列表",
     ):
         service.run_find_max([])
-
-
-def test_run_reverse_array_does_not_modify_original() -> None:
-    service = AlgorithmService()
-    nums = [1, 2, 3]
-
-    result = service.run_reverse_array(nums)
-
-    assert result == [3, 2, 1]
-    assert nums == [1, 2, 3]

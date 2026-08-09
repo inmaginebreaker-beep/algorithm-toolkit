@@ -65,20 +65,20 @@ def run_command(args: argparse.Namespace) -> int:
     service = AlgorithmService()
 
     if args.command == "two-sum":
-        two_sum_result = service.run_two_sum(
+        result = service.run_two_sum(
             nums=args.nums,
             target=args.target,
         )
 
-        print(two_sum_result)
+        print(result.result)
         return 0
 
     if args.command == "find-max":
-        maximum = service.run_find_max(
+        result = service.run_find_max(
             nums=args.nums,
         )
 
-        print(maximum)
+        print(result.result)
         return 0
 
     return 1

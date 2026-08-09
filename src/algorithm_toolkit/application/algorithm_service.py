@@ -1,7 +1,8 @@
 import logging
 
-from algorithm_toolkit.algorithms.array import find_max, reverse_array, two_sum
+from algorithm_toolkit.algorithms.array import find_max, two_sum
 from algorithm_toolkit.exceptions import InvalidInputError
+from algorithm_toolkit.models.result import AlgorithmResult
 
 logger = logging.getLogger(__name__)
 
@@ -9,7 +10,11 @@ logger = logging.getLogger(__name__)
 class AlgorithmService:
     """组织算法调用、输入验证和业务日志。"""
 
-    def run_two_sum(self, nums: list[int], target: int) -> list[int]:
+    def run_two_sum(
+        self,
+        nums: list[int],
+        target: int,
+    ) -> AlgorithmResult:
         """验证输入并执行 two_sum。"""
         self._validate_integer_list(nums)
 
@@ -22,17 +27,20 @@ class AlgorithmService:
             target,
         )
 
-        result = two_sum(nums, target)
+        indices = two_sum(nums, target)
 
-        if result:
-            logger.info("two_sum completed: result=%s", result)
+        if indices:
+            logger.info("two_sum completed: result=%s", indices)
         else:
             logger.warning("two_sum completed without a matching pair")
 
-        return result
+        return AlgorithmResult(
+            algorithm="two-sum",
+            input_size=len(nums),
+            result=indices,
+        )
 
-    def run_find_max(self, nums: list[int]) -> int:
-        """验证输入并返回最大值。"""
+    def run_find_max(self, nums: list[int]) -> AlgorithmResult:
         self._validate_integer_list(nums)
 
         if not nums:
@@ -40,21 +48,15 @@ class AlgorithmService:
 
         logger.info("Running find_max: nums_size=%s", len(nums))
 
-        result = find_max(nums)
+        maximum = find_max(nums)
 
-        logger.info("find_max completed: result=%s", result)
-        return result
+        logger.info("find_max completed: result=%s", maximum)
 
-    def run_reverse_array(self, nums: list[int]) -> list[int]:
-        """验证输入并返回反转后的新列表。"""
-        self._validate_integer_list(nums)
-
-        logger.info("Running reverse_array: nums_size=%s", len(nums))
-
-        result = reverse_array(nums)
-
-        logger.info("reverse_array completed")
-        return result
+        return AlgorithmResult(
+            algorithm="find-max",
+            input_size=len(nums),
+            result=maximum,
+        )
 
     @staticmethod
     def _validate_integer_list(nums: list[int]) -> None:
