@@ -12,9 +12,9 @@ All notable changes to this project will be documented in this file
 ### Changed
 
 - Optimized queue dequeue operations by replacing list-based storage with `collections.deque`.
-
 - Generalized `Queue` with static generic typing so it can safely store different element types.
-
+- Introduced an immutable `AlgorithmResult` data model for application-layer results.
+- Standardized application services to return structured result objects.
 ### Fixed
 
 
