@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file
 - Generalized `Queue` with static generic typing so it can safely store different element types.
 - Introduced an immutable `AlgorithmResult` data model for application-layer results.
 - Standardized application services to return structured result objects.
+- Replaced algorithm-name magic strings with the typed `AlgorithmName` enum.
 ### Fixed
 
 
