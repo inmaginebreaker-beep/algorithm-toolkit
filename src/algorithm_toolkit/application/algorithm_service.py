@@ -2,6 +2,7 @@ import logging
 
 from algorithm_toolkit.algorithms.array import find_max, two_sum
 from algorithm_toolkit.exceptions import InvalidInputError
+from algorithm_toolkit.models.algorithm import AlgorithmName
 from algorithm_toolkit.models.result import AlgorithmResult
 
 logger = logging.getLogger(__name__)
@@ -35,7 +36,7 @@ class AlgorithmService:
             logger.warning("two_sum completed without a matching pair")
 
         return AlgorithmResult(
-            algorithm="two-sum",
+            algorithm=AlgorithmName.TWO_SUM,
             input_size=len(nums),
             result=indices,
         )
@@ -53,7 +54,7 @@ class AlgorithmService:
         logger.info("find_max completed: result=%s", maximum)
 
         return AlgorithmResult(
-            algorithm="find-max",
+            algorithm=AlgorithmName.FIND_MAX,
             input_size=len(nums),
             result=maximum,
         )
