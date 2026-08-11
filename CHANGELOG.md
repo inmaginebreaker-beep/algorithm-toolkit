@@ -16,6 +16,7 @@ All notable changes to this project will be documented in this file
 - Introduced an immutable `AlgorithmResult` data model for application-layer results.
 - Standardized application services to return structured result objects.
 - Replaced algorithm-name magic strings with the typed `AlgorithmName` enum.
+- Introduced Protocol-based application service interfaces to reduce coupling to concrete implementations.
 ### Fixed
 
 
