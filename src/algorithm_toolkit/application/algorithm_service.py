@@ -66,3 +66,15 @@ class AlgorithmService:
 
         if not all(isinstance(number, int) for number in nums):
             raise InvalidInputError("nums 中的所有元素都必须是整数")
+
+
+class FakeFindMaxService:
+    def run_find_max(
+        self,
+        nums: list[int],
+    ) -> AlgorithmResult:
+        return AlgorithmResult(
+            algorithm=AlgorithmName.FIND_MAX,
+            input_size=len(nums),
+            result=999,
+        )
