@@ -1,6 +1,6 @@
 import argparse
 
-from algorithm_toolkit.application.algorithm_service import AlgorithmService
+from algorithm_toolkit.application.protocols import AlgorithmServiceProtocol
 
 
 def create_parser() -> argparse.ArgumentParser:
@@ -33,14 +33,12 @@ def create_two_sum_parser(
         nargs="+",
         type=int,
         required=True,
-        help="Input integer list",
     )
 
     parser.add_argument(
         "--target",
         type=int,
         required=True,
-        help="Target number",
     )
 
 
@@ -57,13 +55,13 @@ def create_find_max_parser(
         nargs="+",
         type=int,
         required=True,
-        help="Input integer list",
     )
 
 
-def run_command(args: argparse.Namespace) -> int:
-    service = AlgorithmService()
-
+def run_command(
+    args: argparse.Namespace,
+    service: AlgorithmServiceProtocol,
+) -> int:
     if args.command == "two-sum":
         result = service.run_two_sum(
             nums=args.nums,

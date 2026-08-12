@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file
 - Standardized application services to return structured result objects.
 - Replaced algorithm-name magic strings with the typed `AlgorithmName` enum.
 - Introduced Protocol-based application service interfaces to reduce coupling to concrete implementations.
+- Decoupled CLI command execution from the concrete algorithm service using dependency injection.
 ### Fixed
 
 

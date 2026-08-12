@@ -3,6 +3,8 @@ import argparse
 from _pytest.capture import CaptureFixture
 
 from algorithm_toolkit.cli.commands import create_parser, run_command
+from algorithm_toolkit.models.algorithm import AlgorithmName
+from algorithm_toolkit.models.result import AlgorithmResult
 
 
 def test_two_sum_cli_arguments() -> None:
@@ -52,8 +54,59 @@ def test_run_find_max_command(
         nums=[4, 9, 2, 7],
     )
 
-    exit_code = run_command(args)
+    service = FakeAlgorithmService()
+
+    exit_code = run_command(
+        args,
+        service,
+    )
+
     captured = capsys.readouterr()
 
     assert exit_code == 0
-    assert captured.out.strip() == "9"
+    assert captured.out.strip() == "999"
+
+
+def test_run_two_sum_command(
+    capsys: CaptureFixture[str],
+) -> None:
+    args = argparse.Namespace(
+        command="two-sum",
+        nums=[2, 7, 11, 15],
+        target=9,
+    )
+
+    service = FakeAlgorithmService()
+
+    exit_code = run_command(
+        args,
+        service,
+    )
+
+    captured = capsys.readouterr()
+
+    assert exit_code == 0
+    assert captured.out.strip() == "[8, 9]"
+
+
+class FakeAlgorithmService:
+    def run_two_sum(
+        self,
+        nums: list[int],
+        target: int,
+    ) -> AlgorithmResult:
+        return AlgorithmResult(
+            algorithm=AlgorithmName.TWO_SUM,
+            input_size=len(nums),
+            result=[8, 9],
+        )
+
+    def run_find_max(
+        self,
+        nums: list[int],
+    ) -> AlgorithmResult:
+        return AlgorithmResult(
+            algorithm=AlgorithmName.FIND_MAX,
+            input_size=len(nums),
+            result=999,
+        )
