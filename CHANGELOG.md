@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file
 - Replaced algorithm-name magic strings with the typed `AlgorithmName` enum.
 - Introduced Protocol-based application service interfaces to reduce coupling to concrete implementations.
 - Decoupled CLI command execution from the concrete algorithm service using dependency injection.
+- Improved CLI isolation tests using mocked service dependencies and behavior verification.
 ### Fixed
 
 
